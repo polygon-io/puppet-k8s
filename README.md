@@ -7,6 +7,11 @@
 [![Puppet Forge - scores](https://img.shields.io/puppetforge/f/puppet/k8s.svg)](https://forge.puppet.com/puppet/k8s)
 [![License](https://img.shields.io/github/license/voxpupuli/puppet-k8s.svg)](https://github.com/voxpupuli/puppet-k8s/blob/master/LICENSE)
 
+## Changes from Fork
+
+This fork allows kube-apiserver to start without setting the --etcd-cafile, --etcd-certfile, and --etcd-keyfile flags.
+They are optional and default to `undef` (this default is different from the original module!).
+
 ## Table of Contents
 
 - [Description](#description)

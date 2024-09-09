@@ -50,9 +50,9 @@ class k8s::server::apiserver (
   Stdlib::Unixpath $front_proxy_key        = "${cert_path}/front-proxy-client.key",
   Stdlib::Unixpath $apiserver_client_cert  = "${cert_path}/apiserver-kubelet-client.pem",
   Stdlib::Unixpath $apiserver_client_key   = "${cert_path}/apiserver-kubelet-client.key",
-  Stdlib::Unixpath $etcd_ca                = "${cert_path}/etcd-ca.pem",
-  Stdlib::Unixpath $etcd_cert              = "${cert_path}/etcd.pem",
-  Stdlib::Unixpath $etcd_key               = "${cert_path}/etcd.key",
+  Optional[Stdlib::Unixpath] $etcd_ca      = undef,
+  Optional[Stdlib::Unixpath] $etcd_cert    = undef,
+  Optional[Stdlib::Unixpath] $etcd_key     = undef,
 
   String[1] $container_registry            = $k8s::container_registry,
   String[1] $container_image               = 'kube-apiserver',
