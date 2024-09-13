@@ -9,8 +9,9 @@
 
 ## Changes from Fork
 
-This fork allows kube-apiserver to start without setting the --etcd-cafile, --etcd-certfile, and --etcd-keyfile flags.
+- Allows kube-apiserver to start without setting the --etcd-cafile, --etcd-certfile, and --etcd-keyfile flags.
 They are optional and default to `undef` (this default is different from the original module!).
+- Allows enabling the v2 etcd API by setting `k8s::server::etcd::setup::enable_v2_api` to `true`.
 
 ## Table of Contents
 
