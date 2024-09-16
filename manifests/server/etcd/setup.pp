@@ -8,6 +8,7 @@
 # @param cert_file path to the cert file
 # @param client_cert_auth Use client cert auth
 # @param data_dir path to the data dir
+# @param enable_v2_api Enable the v2 api
 # @param ensure set ensure for installation or deinstallation
 # @param etcd_name The etcd instance name
 # @param fqdn fully qualified domain name
@@ -69,6 +70,7 @@ class k8s::server::etcd::setup (
   Optional[Enum['existing', 'new']] $initial_cluster_state = undef,
   Optional[String[1]] $initial_cluster_token               = undef,
   Array[String[1]] $initial_cluster                        = [],
+  Boolean $enable_v2_api                                    = false,
 
   Optional[Stdlib::Unixpath] $binary_path = undef,
   Stdlib::Unixpath $storage_path          = '/var/lib/etcd',
@@ -185,6 +187,7 @@ class k8s::server::etcd::setup (
           auto_compaction_retention   => $auto_compaction_retention,
           initial_cluster_state       => $initial_cluster_state,
           initial_cluster_token       => $initial_cluster_token,
+          enable_v2                   => $enable_v2_api,
       }),
       notify  => Service['etcd'];
 
